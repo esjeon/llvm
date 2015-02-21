@@ -17,6 +17,17 @@
 #include "llvm/IR/Module.h"
 #include "llvm/Pass.h"
 
+#if defined(__MUSL__)
+#undef fopen64
+#undef fseeko64
+#undef fstat64
+#undef fstatvfs64
+#undef ftello64
+#undef lstat64
+#undef stat64
+#undef tmpfile64
+#endif
+
 namespace llvm {
 class PreservedAnalyses;
 
